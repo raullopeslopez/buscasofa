@@ -1,16 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { fetchFuelPrices } from '../apis/fuelApi';
-import { GasStationData } from '../types';
 import { Link } from 'react-router-dom';
 import FuelFilters from './FuelFilters';
 import './FuelTable.css';
 
 const PAGE_SIZE = 20;
 
-const FuelTable: React.FC = () => {
-  const [stations, setStations] = useState<GasStationData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const FuelTable = ({ stations }) => {
 
   // Filtros
   const [selectedProvince, setSelectedProvince] = useState('');
@@ -24,17 +19,6 @@ const FuelTable: React.FC = () => {
   // Paginación
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    fetchFuelPrices()
-      .then(data => {
-        setStations(data.ListaEESSPrecio);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
 
   // Provincias y ciudades únicas
   const provinces = useMemo(
@@ -97,8 +81,6 @@ const FuelTable: React.FC = () => {
     setCurrentPage(1);
   }, [selectedProvince, selectedCity, selectedFuel]);
 
-  if (loading) return <div>Cargando precios...</div>;
-  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
