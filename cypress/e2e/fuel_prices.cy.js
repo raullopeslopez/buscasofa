@@ -43,7 +43,7 @@ describe('Visualización de precios de combustibles en gasolineras españolas', 
       });
     }).as('getFuelPrices');
     cy.visit('/');
-    cy.contains('Cargando precios...').should('exist');
+    cy.contains('Cargando...').should('exist');
     cy.wait('@getFuelPrices');
   });
 });
