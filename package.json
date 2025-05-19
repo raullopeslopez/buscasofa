@@ -5,11 +5,12 @@
   "type": "module",
   "homepage": "https://luispedraza.github.io/buscasofa",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite", 
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "e2e": "npx cypress open",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

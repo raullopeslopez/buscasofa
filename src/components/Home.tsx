@@ -53,13 +53,13 @@ const Home = ({ stations }) => {
 
   return (
     <div className="home-container">
-      <h1>Home</h1>
-      <div id="info">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <h1>Buscasofa</h1>
+      <div className='description'>
+        El mejor buscador de precios de combustible de España.
       </div>
 
-      <h2>Resumen nacional de precios</h2>
-      <table>
+      <h2 className='resumen-nacional'>Resumen nacional de precios</h2>
+      <table className='resumen-nacional'>
         <thead>
           <tr>
             <th>Tipo de combustible</th>
@@ -76,8 +76,8 @@ const Home = ({ stations }) => {
         </tbody>
       </table>
 
-      <h2>Resumen por comunidad autónoma</h2>
-      <table>
+      <h2 className='resumen-comunidades'>Resumen por comunidad autónoma</h2>
+      <table className='resumen-comunidades'>
         <thead>
           <tr>
             <th>Comunidad Autónoma</th>
