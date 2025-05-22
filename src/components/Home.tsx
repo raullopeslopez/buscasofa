@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import './Home.css'
-import { COMUNIDADES_AUTONOMAS } from '../apis/fuelApi'
+import { COMUNIDADES_AUTONOMAS } from '../apis/fuelApiLib'
 
 
 const FUEL_TYPES = [

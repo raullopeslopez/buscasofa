@@ -9,7 +9,6 @@ export async function fetchFuelPrices() {
   );
   if (!response.ok) throw new Error('Error al descargar los precios');
 
-
   return response.json();
 }
 

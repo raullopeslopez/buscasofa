@@ -1,9 +1,10 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 // // Pruebas de la home de la aplicación
 
 describe('Visualización de la home de la aplicación', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/')
+            // .wait(4000); // esperar para que lapágina se renderice completmente si la conexión es lenta
     });
 
     it('El title de la web es Buscasofa', () => {
@@ -31,10 +32,10 @@ describe('Visualización de la home de la aplicación', () => {
             .find('tbody')
             .find('tr')
             .should('have.length', 2);  // Resumen de dos tipos de combustible
-    
+
     });
 
-    
+
     it('El usuaro ve una sección con el resumen de precios por comunidad autónoma', () => {
         cy.get('h2.resumen-comunidades')
             .should('exist')
@@ -44,6 +45,6 @@ describe('Visualización de la home de la aplicación', () => {
             .find('tbody')
             .find('tr')
             .should('have.length', 19);  // 19 regiones en las filas
-    
+
     });
 });

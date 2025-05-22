@@ -2,7 +2,9 @@ import './App.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchFuelPrices } from './apis/fuelApi';
+import { fetchFuelPrices } from './apis/fuelApiLib';
+import { FuelApi } from './apis/FuelApi';
+
 
 import Header from './components/Header';
 import FuelMap from './components/FuelMap';
@@ -13,6 +15,7 @@ import FuelTable from './components/FuelTable';
 import Register from './components/Register';
 import Login from './components/Login';
 import Footer from './components/Footer';
+import { NotFound } from './NotFound';
 
 // Componente principal de la aplicación
 // Este componente es el punto de entrada de la aplicación y se encarga de gestionar las rutas y el estado global de la aplicación.
@@ -30,9 +33,23 @@ function App() {
   const [loading, setLoading] = useState(true);   // Inicialmente cargando ...
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchFuelPrices()
+    useEffect(() => {
+      fetchFuelPrices()
+        .then(data => {
+          console.log(data);
+          setStations(data.ListaEESSPrecio);
+          setLoading(false);
+        })
+        .catch(err => {
+          setError(err.message);
+          setLoading(false);
+        });
+    }, []);
+
+/*   useEffect(() => {
+    FuelApi.getInstance().getFuelPrices()
       .then(data => {
+        console.log(data);
         setStations(data.ListaEESSPrecio);
         setLoading(false);
       })
@@ -40,8 +57,7 @@ function App() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
-
+  }, []); */
 
   return (
     <BrowserRouter>
@@ -62,6 +78,7 @@ function App() {
           <Route path="/mapa" element={<FuelMap stations={stations} />} />
           <Route path="/lista" element={<FuelTable stations={stations} />} />
           <Route path="/station/:id" element={<StationDetail stations={stations} user={user} />} />
+          <Route path="*" element={<NotFound />} /> {/* Pagina no encontrada */}
         </Routes>
       )}
       <Footer />

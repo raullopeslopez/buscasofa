@@ -1,4 +1,4 @@
-import { Given, When, Then } from "cypress-cucumber-preprocessor";
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
 
 const randomUser = () => ({
   username: `testuser${Date.now()}`,
@@ -10,7 +10,7 @@ let user;
 
 Given('el usuario navega a la página de registro', () => {
   user = randomUser();
-  cy.visit('/registro');
+  cy.visit('/registro').wait(5000);
 });
 
 When('completa el formulario de registro con datos válidos', () => {
