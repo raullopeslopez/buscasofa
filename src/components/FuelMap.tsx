@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 
 import { getDistanceKm } from '@/apis/utils';
+import React from 'react';
 
 const icon = new L.Icon({
   iconUrl: './gas-pump.png',
@@ -42,9 +43,9 @@ function FuelMap({ stations }) {
   const eventHandlers = useMemo(
     () => ({
       dragend() {
-        const marker = markerRef.current
+        const marker = markerRef.current;
         if (marker != null) {
-          console.log(marker.getLatLng());
+          // @ts-ignore
           setUserLocation([marker.getLatLng().lat, marker.getLatLng().lng]);
         }
       },
