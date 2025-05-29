@@ -30,4 +30,6 @@ Tuttorial IndexedDB https://es.javascript.info/indexeddb
 
 Mocking en cypress https://kailash-pathak.medium.com/mocking-api-response-in-cypress-a73dea514cfd 
 
-Build and Deploy react Vite web site on Github Pages. https://www.youtube.com/watch?v=uXiwgO_p0Yg
+Build and Deploy react Vite web site on Github Pages. https://www.youtube.com/watch?v=uXiwgO_p0Yg usando https://www.npmjs.com/package/gh-pages
+
+https://github.com/cypress-io/github-action?tab=readme-ov-file#end-to-end-testing

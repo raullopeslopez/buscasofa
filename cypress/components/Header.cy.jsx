@@ -1,4 +1,5 @@
-import React from 'react'
+/// <reference types="Cypress" />
+// import React from 'react'
 import Header from '../../src/components/Header'
 
 describe('<Header />', () => {

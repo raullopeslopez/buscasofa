@@ -54,7 +54,6 @@ class FuelApi {
                 //this.data.ListaEESSPrecio = this.data.ListaEESSPrecio.slice(0, 800);
             }
 
-
             // localStorage.setItem('fuelPrices', JSON.stringify(this.data));
             return this.data;
         }
