@@ -1,7 +1,16 @@
 # React + Vite
 
+Ejecutar la aplicación
+
+`npm run dev`
+
 Pruebas, abrir cypress
+
 `npx cypress open`
+
+Para que funcionen las pruebas con usuarios hay que tener ejecutando el servidor:
+
+https://github.com/luispedraza/buscasofa-server 
 
 
 
