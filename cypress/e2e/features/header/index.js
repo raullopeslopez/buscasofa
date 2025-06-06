@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 import { Given, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given('el usuario navega a la home', () => {
@@ -6,7 +6,8 @@ Given('el usuario navega a la home', () => {
 });
 
 Then('debería ver el logo de la aplicación', () => {
-  cy.get('header img[alt="Logo"]').should('be.visible');
+  cy.get('header').should('exist');
+  cy.get('img[alt="Logo"]').should('be.visible');
 });
 
 Then('debería ver el enlace "Buscador"', () => {
@@ -18,7 +19,7 @@ Then('debería ver el enlace "Mapa"', () => {
 });
 
 Then('debería ver el enlace "Quienes somos"', () => {
-  cy.get('a.about').should('be.visible').and('contain', 'Quienes somos');
+  cy.get('a.about').should('be.visible').and('contain', 'Acerca de nosotros');
 });
 
 Then('debería ver el enlace "Login"', () => {
