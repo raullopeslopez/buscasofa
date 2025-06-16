@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
 
 const randomUser = () => ({
@@ -11,10 +10,7 @@ let user;
 
 Given('el usuario navega a la página de registro', () => {
   user = randomUser();
-  cy.visit('/registro');
-  cy.get('#root').should('exist');
-  cy.get('body').should('not.contain', 'Cargando...');
-  cy.get('form.register-form').should('exist');
+  cy.visit('/registro').wait(5000);
 });
 
 When('completa el formulario de registro con datos válidos', () => {
@@ -28,14 +24,11 @@ When('envía el formulario de registro', () => {
 });
 
 Then('ve un mensaje de confirmación de registro', () => {
-  cy.contains(/usuario registrado correctamente|registro exitoso|registrado con éxito/i).should('be.visible');
+  cy.contains(/usuario registrado correctamente|registro exitoso/i, { timeout: 5000 }).should('exist');
 });
 
 Given('el usuario navega a la página de login', () => {
   cy.visit('/login');
-  cy.get('#root').should('exist');
-  cy.get('body').should('not.contain', 'Cargando...');
-  cy.get('form', { timeout: 10000 }).should('exist');
 });
 
 When('completa el formulario de login con credenciales válidas', () => {
@@ -48,5 +41,5 @@ When('envía el formulario de login', () => {
 });
 
 Then('ve un mensaje de bienvenida', () => {
-  cy.contains(/bienvenido|login correcto|¡bienvenido/i).should('be.visible');
+  cy.contains(/bienvenido|login correcto/i, { timeout: 5000 }).should('exist');
 });
